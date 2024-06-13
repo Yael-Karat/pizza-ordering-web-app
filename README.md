@@ -52,5 +52,6 @@ Backend
 The backend of the project serves as the server-side logic implemented with Spring and REST API.
 The ingredients images are located on the Backend.
 
+
 JavaDoc:
 [JavaDoc Documentation](doc/index.html)
