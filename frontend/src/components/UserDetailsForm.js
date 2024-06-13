@@ -1,3 +1,14 @@
+/**
+ * UserDetailsForm Component
+ *
+ * This component renders a form for capturing user details like first name, last name,
+ * address, and phone number. It includes validation for each input field and uses
+ * cookies to persist user data across sessions.
+ *
+ * Props:
+ * - onSubmit: Function to handle form submission and pass user data to the parent component.
+ */
+
 import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -13,6 +24,7 @@ function UserDetailsForm({ onSubmit }) {
 
     const navigate = useNavigate();
 
+    // Load saved user data from cookies on component mount
     useEffect(() => {
         const savedFirstName = Cookies.get('firstName');
         const savedLastName = Cookies.get('lastName');
@@ -29,11 +41,20 @@ function UserDetailsForm({ onSubmit }) {
         if (savedPhoneNumber) setPhoneNumber(savedPhoneNumber);
     }, []);
 
+    /**
+     * Handle form submission
+     *
+     * @param {Event} e - Form submission event
+     */
     const handleSubmit = (e) => {
         e.preventDefault();
         const address = { street, houseNumber, city };
         const userData = { firstName, lastName, address, phoneNumber };
+
+        // Call onSubmit function passed from parent component with user data
         onSubmit(userData);
+
+        // Save user data to cookies for persistence
         Cookies.set('firstName', firstName);
         Cookies.set('lastName', lastName);
         Cookies.set('street', street);
@@ -49,7 +70,7 @@ function UserDetailsForm({ onSubmit }) {
                 <Form.Control
                     type="text"
                     value={firstName}
-                    style={{backgroundColor: 'transparent', color: 'white'}}
+                    style={{ backgroundColor: 'transparent', color: 'white' }}
                     onChange={(e) => {
                         const value = e.target.value;
                         // Check if the input value matches the pattern
@@ -65,7 +86,7 @@ function UserDetailsForm({ onSubmit }) {
                 <Form.Control
                     type="text"
                     value={lastName}
-                    style={{backgroundColor: 'transparent', color: 'white'}}
+                    style={{ backgroundColor: 'transparent', color: 'white' }}
                     onChange={(e) => {
                         const value = e.target.value;
                         // Check if the input value matches the pattern
@@ -81,8 +102,8 @@ function UserDetailsForm({ onSubmit }) {
                 <Form.Control
                     type="text"
                     value={street}
-                    pattern="[A-Za-z\s]*"  // Regular expression to match letters and spaces
-                    style={{backgroundColor: 'transparent', color: 'white'}}
+                    pattern="[A-Za-z\s]*" // Regular expression to match letters and spaces
+                    style={{ backgroundColor: 'transparent', color: 'white' }}
                     onChange={(e) => {
                         const value = e.target.value;
                         // Check if the input value matches the pattern
@@ -96,9 +117,9 @@ function UserDetailsForm({ onSubmit }) {
             <Form.Group controlId="houseNumber">
                 <Form.Label>House Number</Form.Label>
                 <Form.Control
-                    type="text"  // Change to "text" to use pattern validation
+                    type="text" // Change to "text" to use pattern validation
                     value={houseNumber}
-                    style={{backgroundColor: 'transparent', color: 'white'}}
+                    style={{ backgroundColor: 'transparent', color: 'white' }}
                     onChange={(e) => {
                         const value = e.target.value;
                         // Check if the input value matches the pattern
@@ -114,7 +135,7 @@ function UserDetailsForm({ onSubmit }) {
                 <Form.Control
                     type="text"
                     value={city}
-                    style={{backgroundColor: 'transparent', color: 'white'}}
+                    style={{ backgroundColor: 'transparent', color: 'white' }}
                     onChange={(e) => {
                         const value = e.target.value;
                         // Check if the input value matches the pattern
@@ -130,7 +151,7 @@ function UserDetailsForm({ onSubmit }) {
                 <Form.Control
                     type="text"
                     value={phoneNumber}
-                    style={{backgroundColor: 'transparent', color: 'white'}}
+                    style={{ backgroundColor: 'transparent', color: 'white' }}
                     pattern="\d{10}"
                     title="Phone number should be 10 digits"
                     onChange={(e) => {
