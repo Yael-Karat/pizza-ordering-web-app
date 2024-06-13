@@ -3,6 +3,9 @@ import { Button, Container, ListGroup, Modal, Image, Row, Col } from 'react-boot
 import { useCart } from './CartContext';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * Represents the Cart component where users can view, edit, and proceed to checkout with their pizzas.
+ */
 function Cart() {
     const { cart, removeFromCart, updatePizzaInCart, ingredients } = useCart();
     const navigate = useNavigate();
@@ -10,16 +13,28 @@ function Cart() {
     const [selectedIngredients, setSelectedIngredients] = useState([]);
     const [error, setError] = useState('');
 
+    /**
+     * Handles removing a pizza from the cart.
+     * @param {number} index - Index of the pizza in the cart array.
+     */
     const handleRemovePizza = (index) => {
         removeFromCart(index);
     };
 
+    /**
+     * Handles initiating the editing of a pizza's ingredients.
+     * @param {number} index - Index of the pizza in the cart array.
+     */
     const handleEditPizza = (index) => {
         setError('');
         setEditingPizza(index);
         setSelectedIngredients(cart[index].ingredients);
     };
 
+    /**
+     * Handles saving the edited pizza with selected ingredients.
+     * Displays error if less than 2 ingredients are selected.
+     */
     const handleSavePizza = () => {
         if (selectedIngredients.length >= 2) {
             const updatedPizza = {
@@ -34,6 +49,11 @@ function Cart() {
         }
     };
 
+    /**
+     * Handles adding an ingredient to the selected ingredients list.
+     * Displays error if ingredient is already selected or only one ingredient is selected.
+     * @param {object} ingredient - The ingredient object to add.
+     */
     const handleAddIngredient = (ingredient) => {
         if (selectedIngredients.length === 1) {
             setError('');
@@ -46,10 +66,18 @@ function Cart() {
         }
     };
 
+    /**
+     * Handles removing an ingredient from the selected ingredients list.
+     * @param {string} ingredient - The name of the ingredient to remove.
+     */
     const handleRemoveIngredient = (ingredient) => {
         setSelectedIngredients(selectedIngredients.filter(item => item !== ingredient));
     };
 
+    /**
+     * Calculates the total price of all pizzas in the cart.
+     * @returns {number} - Total price of all pizzas.
+     */
     const getTotalPrice = () => {
         let totalPrice = 0;
         cart.forEach(pizza => {
@@ -58,14 +86,25 @@ function Cart() {
         return totalPrice;
     };
 
+    /**
+     * Navigates to the checkout page.
+     */
     const handleProceedToCheckout = () => {
         navigate('/checkout');
     };
 
+    /**
+     * Navigates back to the pizza customization/ordering page.
+     */
     const handleBackToOrder = () => {
         navigate('/build');
     };
 
+    /**
+     * Retrieves the image URL for a given ingredient.
+     * @param {string} ingredientName - The name of the ingredient.
+     * @returns {string} - The URL of the ingredient's image.
+     */
     const getIngredientImage = (ingredientName) => {
         const ingredient = ingredients.find(ing => ing.name === ingredientName);
         return ingredient ? ingredient.image : '';

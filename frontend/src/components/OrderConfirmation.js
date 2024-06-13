@@ -1,8 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useCart } from './CartContext';
-import {Container, Card, ListGroup, Button, ToastContainer, Toast} from 'react-bootstrap';
+import { Container, Card, ListGroup, Button, ToastContainer, Toast } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * OrderConfirmation component displays the order details after a successful order placement.
+ * It allows copying the order code to the clipboard and provides navigation options.
+ */
 const OrderConfirmation = () => {
     const { orderDetails } = useCart();
     const navigate = useNavigate();
@@ -11,6 +15,9 @@ const OrderConfirmation = () => {
     const [showToast, setShowToast] = useState(false);
     const [toastMessage, setToastMessage] = useState('');
 
+    /**
+     * Copies the order code to the clipboard and shows a toast notification.
+     */
     const copyToClipboard = () => {
         navigator.clipboard.writeText(orderDetails.orderCode).then(() => {
             setToastMessage('Order code copied to clipboard!');
@@ -18,6 +25,9 @@ const OrderConfirmation = () => {
         setShowToast(true);
     };
 
+    /**
+     * Renders the order details or a message if no order details are available.
+     */
     if (!orderDetails) {
         return (
             <Container className="text-center">
@@ -50,7 +60,7 @@ const OrderConfirmation = () => {
                         ))}
                         <ListGroup.Item style={{ backgroundColor: 'transparent', color: 'white', fontSize: '35px' }}>Total Price: {orderDetails.totalPrice}$</ListGroup.Item>
                     </ListGroup>
-                    <br/>
+                    <br />
                     <h2>User Details:</h2>
                     <h5>Name: {orderDetails.firstName} {orderDetails.lastName}</h5>
                     <h5>Address: {orderDetails.address?.street} {orderDetails.address?.houseNumber}, {orderDetails.address?.city}</h5>

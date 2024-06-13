@@ -1,3 +1,9 @@
+/**
+ * HomePage Component
+ *
+ * Renders the homepage of the application with buttons to start a new order
+ * or check order status.
+ */
 import React from 'react';
 import { Container, Button } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';

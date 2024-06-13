@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
-import { Button, Form, Container, Image, Row, Col } from 'react-bootstrap';
+import { Button, Form, Container, Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from './CartContext';
 
+/**
+ * Represents the OrderStatus component where users can check the status of their orders.
+ */
 function OrderStatus() {
-    const [orderCode, setOrderCode] = useState('');
-    const [order, setOrder] = useState(null);
-    const [error, setError] = useState(null);
-    const navigate = useNavigate();
-    const { ingredients } = useCart();
+    const [orderCode, setOrderCode] = useState(''); // State to hold the order code entered by the user
+    const [order, setOrder] = useState(null); // State to hold the fetched order data
+    const [error, setError] = useState(null); // State to hold error messages
+    const navigate = useNavigate(); // Hook for navigation functions
+    const { ingredients } = useCart(); // Hook to access ingredients from CartContext
 
+    /**
+     * Handles fetching order details from the server based on the entered order code.
+     * Displays an error message if the order is not found.
+     */
     const handleFetchOrder = () => {
         fetch(`/api/orders/${orderCode}`)
             .then(response => {
@@ -28,15 +35,27 @@ function OrderStatus() {
             });
     };
 
+    /**
+     * Retrieves the image URL for a given ingredient.
+     * @param {string} ingredientName - The name of the ingredient.
+     * @returns {string} - The URL of the ingredient's image.
+     */
     const getIngredientImage = (ingredientName) => {
         const ingredient = ingredients.find(ing => ing.name === ingredientName);
         return ingredient ? ingredient.image : '';
     };
 
+    /**
+     * Handles navigating back to the home page.
+     */
     const handleBack = () => {
         navigate('/');
     };
 
+    /**
+     * Calculates the total price of all pizzas in the order.
+     * @returns {number} - Total price of all pizzas.
+     */
     const getTotalPrice = () => {
         if (!order) return 0;
         let totalPrice = 0;

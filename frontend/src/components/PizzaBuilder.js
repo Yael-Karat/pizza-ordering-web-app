@@ -1,3 +1,10 @@
+/**
+ * PizzaBuilder Component
+ *
+ * Allows users to build a custom pizza by selecting ingredients. Users can add
+ * ingredients, remove ingredients, view selected ingredients, and add the pizza
+ * to the cart or proceed to the cart or homepage.
+ */
 import React, { useState } from 'react';
 import { Button, Card, Container, Toast, ToastContainer, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -13,16 +20,32 @@ function PizzaBuilder() {
     const [showToast, setShowToast] = useState(false);
     const [toastMessage, setToastMessage] = useState('');
 
+    /**
+     * Handles adding an ingredient to the selected ingredients list and updates
+     * the pizza price accordingly.
+     *
+     * @param {string} ingredient - The name of the ingredient to add.
+     */
     const handleAddIngredient = (ingredient) => {
         setSelectedIngredients([...selectedIngredients, ingredient]);
         setPizzaPrice(pizzaPrice + 2);
     };
 
+    /**
+     * Handles removing an ingredient from the selected ingredients list and updates
+     * the pizza price accordingly.
+     *
+     * @param {string} ingredient - The name of the ingredient to remove.
+     */
     const handleRemoveIngredient = (ingredient) => {
         setSelectedIngredients(selectedIngredients.filter(item => item !== ingredient));
         setPizzaPrice(pizzaPrice - 2);
     };
 
+    /**
+     * Handles adding the current pizza (with selected ingredients) to the cart.
+     * Shows a toast notification upon success or failure.
+     */
     const handleAddToCart = () => {
         if (selectedIngredients.length >= 2) {
             addToCart({ ingredients: selectedIngredients, price: pizzaPrice });
@@ -35,11 +58,17 @@ function PizzaBuilder() {
         setShowToast(true);
     };
 
+    /**
+     * Navigates to the cart page with the current selected pizza details.
+     */
     const handleProceedToCart = () => {
         setSelectedPizza({ ingredients: selectedIngredients, price: pizzaPrice });
         navigate('/cart');
     };
 
+    /**
+     * Navigates back to the homepage.
+     */
     const handleBackToHome = () => {
         setSelectedPizza({ ingredients: selectedIngredients, price: pizzaPrice });
         navigate('/');
