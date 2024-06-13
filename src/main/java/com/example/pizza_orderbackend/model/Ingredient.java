@@ -2,41 +2,30 @@ package com.example.pizza_orderbackend.model;
 
 public class Ingredient {
     private String name;
-    private String imageUrl;
+    private String image;
 
-    // Default constructor
-    public Ingredient() {
-    }
+    // Constructors
+    public Ingredient() {}
 
-    // Parameterized constructor
-    public Ingredient(String name, String imageUrl) {
+    public Ingredient(String name, String image) {
         this.name = name;
-        this.imageUrl = imageUrl;
+        this.image = image;
     }
 
-    // Getters
+    // Getters and Setters
     public String getName() {
         return name;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    // Setters
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public String getImage() {
+        return image;
     }
 
-    @Override
-    public String toString() {
-        return "Ingredient{" +
-                "name='" + name + '\'' +
-                ", imageUrl='" + imageUrl + '\'' +
-                '}';
+    public void setImage(String image) {
+        this.image = image;
     }
 }

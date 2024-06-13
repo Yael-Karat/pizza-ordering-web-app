@@ -4,12 +4,22 @@ import java.util.List;
 
 public class Pizza {
     private List<String> ingredients;
+    private double price;
 
     // Constructors
     public Pizza() {}
 
-    public Pizza(List<String> ingredients) {
+    public Pizza(List<String> ingredients, double price) {
         this.ingredients = ingredients;
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     // Getters and Setters
