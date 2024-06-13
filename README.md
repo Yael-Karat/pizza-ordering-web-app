@@ -52,6 +52,7 @@ Backend
 The backend of the project serves as the server-side logic implemented with Spring and REST API.
 The ingredients images are located on the Backend.
 
-
 JavaDoc:
 [JavaDoc Documentation](doc/index.html)
+
+We used one day of grace (we received confirmation from Solange that Shavuot is not included in days of grace)
