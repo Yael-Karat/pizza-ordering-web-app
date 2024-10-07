@@ -51,10 +51,10 @@ The ingredients images are located on the Backend.
 ### Steps:
 <ol>
   <strong><li>Clone the repository:</strong>
-    <pre><code>git clone https://github.com/Yael-Karat/pizza_order.git</code></pre>
+    <pre><code>git clone https://github.com/Yael-Karat/pizza-ordering-web-app.git</code></pre>
   </li>
   <strong><li>Navigate to the project directory:</strong>
-    <pre><code>cd pizza_order</code></pre>
+    <pre><code>cd pizza-ordering-web-app</code></pre>
   </li>
   <strong><li>Install backend dependencies and run the Spring Boot application:</strong>
     <pre><code>mvn spring-boot:run</code></pre>
