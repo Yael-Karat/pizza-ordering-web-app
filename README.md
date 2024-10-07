@@ -1,11 +1,5 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/Ke_DgSzD)
-
 ## Authors
-<h1>Yael Karat</h1>
-<p>Email: yaelkara@edu.hac.ac.il</p>
-
-<h1>Amit Lap</h1>
-<p>Email: amitlap@edu.hac.ac.il</p>
+<h3>Amit Lap & Yael Karat</h3>
 <br>
 
 ### Project Description:
