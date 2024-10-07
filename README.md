@@ -1,8 +1,11 @@
 ## Authors
-<h3>Amit Lap & Yael Karat</h3>
-<br>
+<p>
+  <span><strong>Amit Lap & Yael Karat</strong></span>
+  (<a href="https://github.com/Yael-Karat">@Yael-Karat</a>)
+</p>
 
-### Project Description:
+
+## Project Description
 
 The project is an interactive pizza ordering system Frontend (in React) and Backend (in Spring).
 It allows users to customize their pizzas by selecting ingredients, managing their cart, and proceeding to checkout.
@@ -29,24 +32,38 @@ The application features multiple pages for ordering, editing pizzas in the cart
     - After placing an order, users can check its status by entering a unique order code.
     - They receive detailed information about the ordered pizzas and total price.
 
-### Functionality of Pricing:
+## Technologies Used
 
-The pricing in the application is dynamic and based on the ingredients selected for each pizza:
-
-- **Base Price**: Each pizza starts with a base price of $10.
-- **Ingredient Cost**: Additional costs are added based on the number and type of ingredients chosen.
-    - Each ingredient adds $2 to the base price.
-    - The total price of a pizza is calculated as `Base Price + (Number of Ingredients * $2)`.
-    - Total Order Price: The total price displayed at Cart is the sum of all individual pizza prices in the cart. It reflects any changes made to pizzas' ingredients during the ordering and editing process.
-
-Frontend
+### Frontend:
 The frontend of the project is a React-based web application designed to facilitate the custom ordering of pizzas. Users can build their pizzas by selecting ingredients, view their cart, and proceed to checkout. The frontend utilizes React hooks, context API, and React Router for state management, context sharing, and navigation, respectively. It communicates with the backend via API calls to manage orders, retrieve ingredient data, and handle order status inquiries.
 
-Backend
+### Backend:
 The backend of the project serves as the server-side logic implemented with Spring and REST API.
 The ingredients images are located on the Backend.
 
-JavaDoc:
-[JavaDoc Documentation](doc/index.html)
+## Installation
 
-We used one day of grace (we received confirmation from Solange that Shavuot is not included in days of grace)
+### Prerequisites:
+- Node.js and npm installed
+- Java Development Kit (JDK) installed
+- Maven installed
+
+### Steps:
+<ol>
+  <strong><li>Clone the repository:</strong>
+    <pre><code>git clone https://github.com/Yael-Karat/pizza_order.git</code></pre>
+  </li>
+  <strong><li>Navigate to the project directory:</strong>
+    <pre><code>cd pizza_order</code></pre>
+  </li>
+  <strong><li>Install backend dependencies and run the Spring Boot application:</strong>
+    <pre><code>mvn spring-boot:run</code></pre>
+  </li>
+  <strong><li>Install frontend dependencies:</strong>
+    <pre><code>cd frontend
+npm install</code></pre>
+  </li>
+  <strong><li>Start the frontend development server:</strong>
+    <pre><code>npm start</code></pre>
+  </li>
+</ol>
