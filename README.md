@@ -4,7 +4,6 @@
   (<a href="https://github.com/Yael-Karat">@Yael-Karat</a>)
 </p>
 
-
 ## Project Description
 
 The project is an interactive pizza ordering system Frontend (in React) and Backend (in Spring).
