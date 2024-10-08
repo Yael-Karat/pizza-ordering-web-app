@@ -47,7 +47,7 @@ The ingredients images are located on the Backend.
 ### Steps:
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/Yael-Karat/pizza-ordering-web-app.git
+    git clone https://github.com/your-username/pizza-ordering-web-app.git
     ```
 
 2. **Navigate to the project directory:**
