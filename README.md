@@ -1,8 +1,5 @@
 ## Authors
-<p>
-  <span><strong>Amit Lap & Yael Karat</strong></span>
-  (<a href="https://github.com/Yael-Karat">@Yael-Karat</a>)
-</p>
+**Amit Lap** & **Yael Karat** - [@Yael-Karat](https://github.com/Yael-Karat)
 
 ## Project Description
 
@@ -48,21 +45,26 @@ The ingredients images are located on the Backend.
 - Maven installed
 
 ### Steps:
-<ol>
-  <strong><li>Clone the repository:</strong>
-    <pre><code>git clone https://github.com/Yael-Karat/pizza-ordering-web-app.git</code></pre>
-  </li>
-  <strong><li>Navigate to the project directory:</strong>
-    <pre><code>cd pizza-ordering-web-app</code></pre>
-  </li>
-  <strong><li>Install backend dependencies and run the Spring Boot application:</strong>
-    <pre><code>mvn spring-boot:run</code></pre>
-  </li>
-  <strong><li>Install frontend dependencies:</strong>
-    <pre><code>cd frontend
-npm install</code></pre>
-  </li>
-  <strong><li>Start the frontend development server:</strong>
-    <pre><code>npm start</code></pre>
-  </li>
-</ol>
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/Yael-Karat/pizza-ordering-web-app.git
+    ```
+
+2. **Navigate to the project directory:**
+    ```bash
+    cd pizza-ordering-web-app
+    ```
+3. **Install backend dependencies and run the Spring Boot application:**
+    ```bash
+    mvn spring-boot:run
+    ```   
+
+4. **Install frontend dependencies:**
+    ```bash
+    cd frontend
+    npm install
+    ```
+
+5. **Start the frontend development server:**
+    ```bash
+    npm start
