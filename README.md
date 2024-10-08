@@ -1,3 +1,4 @@
+# 🍕 Pizza Ordering Web App
 ## Authors
 **Amit Lap** & **Yael Karat** - [@Yael-Karat](https://github.com/Yael-Karat)
 
